@@ -6,5 +6,5 @@
             "file_exclude_patterns": ["*.meta"],
         },
     ],
-    "solution_file": "./BucketRunner.sln"
+    "solution_file": "./LiveDead.sln"
 }
