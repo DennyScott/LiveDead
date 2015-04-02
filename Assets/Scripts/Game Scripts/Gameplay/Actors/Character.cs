@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class Character : Grunt {
 
     public int health;
-    public int speed;
+    public float speed = 5.0f;
     public int gcd;
 
     public delegate void characterAction(GameObject g);
