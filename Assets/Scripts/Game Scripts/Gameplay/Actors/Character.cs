@@ -7,18 +7,14 @@ public abstract class Character : Grunt {
     public float speed = 5.0f;
     public int gcd;
 
+
+
     public delegate void characterAction(GameObject g);
-    public event characterAction onAttack;
     public event characterAction onDamage;
 
+   
 
     #region Event Triggers
-    private void TriggerOnAttack () {
-        if(onAttack != null) {
-            onAttack(gameObject);
-        }
-    }
-
     private void TriggerOnDamage () {
         if(onDamage != null) {
             onDamage(gameObject);

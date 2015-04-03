@@ -4,16 +4,26 @@ using System.Collections;
 
     public class Player : Character {
 
-        void Start () {
+        private Attack attackGrunt;
+        public GameObject enemy;
+        private Attack tempTarget;
+
+        void Start() {
+            attackGrunt = gameObject.GetComponent<Attack>();
+            tempTarget = enemy.GetComponent<Attack>();
         }
 
         void Update() {
-
+            //base.Update();
             float currentSpeed = GetCurrentSpeed();
+
+            if(Input.GetButton("Fire2")) {
+                attackGrunt.AttackTarget(tempTarget);
+            }
 
             float translation = Input.GetAxis("Vertical") * currentSpeed;
             float rotation = Input.GetAxis("Horizontal") * currentSpeed;
-
+            
             translation *= Time.deltaTime;
             rotation *= Time.deltaTime;
 

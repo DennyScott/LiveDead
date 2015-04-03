@@ -22,6 +22,7 @@ public class ClickMovement : AdvancedBehaviour {
             startPosition = transform.position;
             journeyLength = Vector3.Distance(transform.position, target); //Switch transform.position to startPosition for constant move speed
             isMoving = true;
+			TurnToPosition();
         }
         
         if(isMoving) {
@@ -30,4 +31,8 @@ public class ClickMovement : AdvancedBehaviour {
             transform.position = Vector3.Lerp(transform.position, target, fracJourney); //Switch transform.position to startPosition for constant move speed
         }
     }
+
+	void TurnToPosition() {
+		transform.LookAt(target);
+	}
 }
