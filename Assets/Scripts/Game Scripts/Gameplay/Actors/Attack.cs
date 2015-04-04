@@ -6,28 +6,30 @@ public class Attack : Grunt {
     private enum CharacterStates { ATTACK, NEUTRAL };
     private CharacterStates currentState = CharacterStates.NEUTRAL;
 
-    public float _attackRange = 1.0f;
+	#region Public Variables
+	public float _attackRange = 1.0f;
     public float _hitbox = 1.0f;
+	#endregion
 
-    public delegate void characterState(GameObject g);
-    public event characterState onAttackState;
+	#region Private Variables
+	Attack _target;
+	#endregion
 
-    public delegate void characterAction(GameObject g);
-    public event characterAction onAttack;
+	#region delegates
+	public System.Action<GameObject> onAttackState;
+    public System.Action<GameObject> onAttack;
+	#endregion
 
-    Attack _target;
-
-    void Start() {
-
+	#region MonoBehaviour Methods
+	void Update() {
+		
     }
+	#endregion
 
-    void Update() {
-        AutoAttack();
-    }
-
-    void AutoAttack() {
+	#region Private Methods
+	void AutoAttack() {
         if(currentState == CharacterStates.ATTACK) {
-            if(IsTargetInAttackRange(_attackRange) && IsTargetInView(360.0f)) {
+            if(IsTargetInAttackRange(_attackRange) && IsTargetInView(50.0f)) {
                 Debug.Log("Attacking Target");
             }
         }
@@ -38,17 +40,19 @@ public class Attack : Grunt {
 	}
 
 	bool IsTargetInView(float allowableAngle) {
-		Debug.Log(Vector3.Angle(gameObject.transform.forward, _target.transform.position - gameObject.transform.position));
 		return Vector3.Angle(gameObject.transform.forward, _target.transform.position - gameObject.transform.position) < allowableAngle;
 	}
+	#endregion
 
-    public void AttackTarget(Attack target) {
+	#region Public Methods
+	public void AttackTarget(Attack target) {
         _target = target;
         TriggerAttackState();
     }
+	#endregion
 
-    #region Event Triggers
-    private void TriggerOnAttack() {
+	#region Event Triggers
+	private void TriggerOnAttack() {
         if(onAttack != null) {
             onAttack(gameObject);
         }
@@ -61,4 +65,14 @@ public class Attack : Grunt {
         }
     }
     #endregion
+
+	#region Coroutines
+	IEnumerator CharacterState() {
+		switch(currentState) {
+			case CharacterStates.ATTACK:
+				yield AutoAttack();
+				break;
+		}
+	}
+	#endregion
 }
