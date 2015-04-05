@@ -545,8 +545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdf89c40481596489a0865841f80d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1
-  hitbox: 1
+  _attackRange: 1
+  _hitbox: 1
 --- !u!1 &1481470409
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +560,7 @@ GameObject:
   - 23: {fileID: 1481470411}
   - 114: {fileID: 1481470414}
   - 114: {fileID: 1481470415}
+  - 114: {fileID: 1481470416}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -648,8 +649,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdf89c40481596489a0865841f80d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1
-  hitbox: 1
+  _attackRange: 1
+  _hitbox: 1
+--- !u!114 &1481470416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481470409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcde7a25c650054cbdb4114e14e9519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
 --- !u!1 &1527596417
 GameObject:
   m_ObjectHideFlags: 0
