@@ -471,7 +471,6 @@ GameObject:
   - 33: {fileID: 1141111217}
   - 65: {fileID: 1141111216}
   - 23: {fileID: 1141111215}
-  - 114: {fileID: 1141111219}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -534,19 +533,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1968073149}
   m_RootOrder: 0
---- !u!114 &1141111219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1141111214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccdf89c40481596489a0865841f80d27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackRange: 1
-  _hitbox: 1
 --- !u!1 &1481470409
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,8 +545,8 @@ GameObject:
   - 135: {fileID: 1481470412}
   - 23: {fileID: 1481470411}
   - 114: {fileID: 1481470414}
-  - 114: {fileID: 1481470415}
   - 114: {fileID: 1481470416}
+  - 114: {fileID: 1481470415}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -634,10 +620,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c535eee1067e4d1c9afb145610e301b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  speed: 4
-  gcd: 0
-  enemy: {fileID: 1141111214}
+  Health: 0
+  Speed: 5
+  Gcd: 0
+  AttackRange: 1
+  AttackView: 50
+  Hitbox: 1
+  Enemy: {fileID: 0}
 --- !u!114 &1481470415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,11 +635,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1481470409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccdf89c40481596489a0865841f80d27, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e9046f26e0d56243a4007bf614ae516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRange: 1
-  _hitbox: 1
 --- !u!114 &1481470416
 MonoBehaviour:
   m_ObjectHideFlags: 0

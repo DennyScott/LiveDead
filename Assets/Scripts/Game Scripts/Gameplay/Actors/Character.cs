@@ -17,7 +17,7 @@ public abstract class Character : Grunt {
 
 	#region Private Variables
 	private CharacterStates _currentState;
-	private readonly ICharacterState[] _characterState = new ICharacterState[System.Enum.GetNames(typeof(CharacterStates)).Length];
+	private readonly IState[] _characterState = new IState[System.Enum.GetNames(typeof(CharacterStates)).Length];
 	#endregion
 
 	#region Monobehaviour Methods
